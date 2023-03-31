@@ -49,8 +49,6 @@ export class LessonResolver {
 
   @ResolveField()
   async students(@Parent() lesson: Lesson) {
-    const students = await this.studentService.getSomeStudents(lesson.students);
-    console.log({ students });
-    return students;
+    return this.studentService.getSomeStudents(lesson.students);
   }
 }
