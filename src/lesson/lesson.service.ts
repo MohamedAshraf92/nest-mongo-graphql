@@ -19,12 +19,7 @@ export class LessonService {
   }
 
   async getLessonById(id: string): Promise<Lesson> {
-    const lesson = await this.lessonModel
-      .findById(id)
-      .populate({ path: 'Student', strictPopulate: false })
-      .exec();
-    console.log({ lesson });
-
+    const lesson = await this.lessonModel.findById(id);
     return lesson;
   }
 
@@ -39,8 +34,6 @@ export class LessonService {
     const { lessonId, students } = assignStudentsToLessonData;
     const lesson = await this.lessonModel.findById(lessonId);
     lesson.students = lesson.students.concat(students);
-    console.log({ lesson });
     return lesson.save();
-    // return lesson.populate({ path: 'Student', strictPopulate: false });
   }
 }

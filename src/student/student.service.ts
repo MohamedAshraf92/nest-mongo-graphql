@@ -15,6 +15,11 @@ export class StudentService {
     return students;
   }
 
+  async getSomeStudents(idsArray): Promise<Student[]> {
+    const students = await this.studentModel.find({ _id: { $in: idsArray } });
+    return students;
+  }
+
   async getStudentById(id: string): Promise<Student> {
     const student = await this.studentModel.findById(id);
     return student;

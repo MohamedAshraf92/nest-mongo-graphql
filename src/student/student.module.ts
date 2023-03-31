@@ -9,6 +9,6 @@ import { StudentResolver } from './student.resolver';
     MongooseModule.forFeature([{ name: Student.name, schema: StudentSchema }]),
   ],
   providers: [StudentService, StudentResolver],
-  exports: [MongooseModule],
+  exports: [MongooseModule, StudentService],
 })
 export class StudentModule {}
