@@ -6,7 +6,7 @@ import {
   ResolveField,
   Resolver,
 } from '@nestjs/graphql';
-import { StudentType, createStudentInput } from './student.types';
+import { StudentType, CreateStudentInput } from './student.types';
 import { StudentService } from './student.service';
 import { Student } from './student.schema';
 import { LessonService } from '../lesson/lesson.service';
@@ -30,7 +30,7 @@ export class StudentResolver {
 
   @Mutation(() => StudentType)
   createStudent(
-    @Args('createStudentData') createStudentData: createStudentInput,
+    @Args('createStudentData') createStudentData: CreateStudentInput,
   ) {
     return this.studentService.createStudent(createStudentData);
   }

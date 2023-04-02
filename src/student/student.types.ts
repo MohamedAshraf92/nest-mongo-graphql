@@ -18,7 +18,7 @@ export class StudentType {
 }
 
 @InputType()
-export class createStudentInput {
+export class CreateStudentInput {
   @Field()
   @MinLength(3)
   firstName: string;
