@@ -13,7 +13,7 @@ export class StudentType {
   @Field()
   lastName: string;
 
-  @Field(() => LessonType)
+  @Field(() => [LessonType])
   lessons: string[];
 }
 

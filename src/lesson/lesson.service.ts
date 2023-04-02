@@ -36,4 +36,9 @@ export class LessonService {
     lesson.students = lesson.students.concat(students);
     return lesson.save();
   }
+
+  async getStudentLessons(lessonsIds): Promise<Lesson[]> {
+    const lessons = await this.lessonModel.find({ _id: { $in: lessonsIds } });
+    return lessons;
+  }
 }
